@@ -1,0 +1,43 @@
+table {
+    border: 1px black solid;
+}
+
+td {
+    border: 1px black solid;
+    height: 35px;
+    width: 35px;
+}
+
+.mine {
+    height: 30px;
+    width: 30px;
+    position: relative;
+}
+
+.mine-caver {
+    position: fixed;
+}
+
+.caver {
+    height: 35px;
+    width: 35px;
+    background-color: #ddd;
+    position: relative;
+    z-index: 1;
+}
+.safe{
+    background-color: green;
+}
+.hiden{
+    display: none;
+}
+.num {
+    height: 30px;
+    width: 30px;
+    position: fixed;
+}
+
+.mark {
+    background-image: url('../img/flug.png');
+    background-repeat: round;
+}

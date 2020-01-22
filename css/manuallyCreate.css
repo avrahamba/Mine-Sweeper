@@ -1,0 +1,31 @@
+table {
+    border: 1px black solid;
+}
+
+td {
+    border: 1px black solid;
+    height: 35px;
+    width: 35px;
+}
+
+.mine {
+    height: 30px;
+    width: 30px;
+    position: relative;
+}
+
+.caver {
+    
+    display: none;
+}
+
+.num {
+    height: 30px;
+    width: 30px;
+    position: fixed;
+}
+
+.mark {
+    background-image: url('../img/flug.png');
+    background-repeat: round;
+}

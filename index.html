@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link class="css" rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="initGame()" onkeydown="bodyOnKey(event)">
+    <table>
+        <thead class="theade">
+            <tr>
+                <td colspan="100">
+                    <div class="time">0</div>
+                    <div class="mines-screen">0</div>
+                    <div class="imuji" onclick="initGame()">&#x1F642;</div>
+                    <div class="live"></div>
+                    <div class="dark-mode" onclick="darkMode()">🌓</div>
+                    <div class="safe-click" onclick="safeClick(this)"></div>
+                    <div class="hints" onclick="hint(this)"></div>
+                    <div class="undo" onclick="undo()">undo</div>
+                    <div>
+                        <select>
+                            <option onclick="initGame(4,2)">Beginner</option>
+                            <option onclick="initGame(8,12)">Medium</option>
+                            <option onclick="initGame(12,30)">Expert</option>
+                        </select>
+                    </div>
+                    <div class="manually-create" onclick="manuallyCreate()">manually create</div>
+                </td>
+            </tr>
+        </thead>
+        <tbody class="game-board"> </tbody>
+    </table>
+    <div class="best-sorce"></div>
+     <script src="js/utils.js"></script>
+     <script src="js/manuallyCreate.js"></script> 
+     <script src="js/hints.js"></script> 
+     <script src="js/undo.js"></script> 
+     <script src="js/main.js"></script>
+    </body>
+
+</html>
