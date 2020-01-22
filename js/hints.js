@@ -32,23 +32,23 @@ function hintClick(elCell) {
                 caver.classList.add('hiden')
                 setTimeout(function () { if (caver) caver.classList.remove('hiden'); }, 300);
             }
-        var elMine = currEl.querySelector('.mine');
-        if(elMine)elMine.classList.remove('mine-caver');
-    }
-}
-setTimeout(function () {
-    
-    for (var i = startI; i <= endI; i++) {
-        for (var j = startJ; j <= endJ; j++) {
-            if (i < 0 || j < 0 || i >= gBoard.length || j >= gBoard[0].length) continue;
-            var currEl = coordToEl({ i: i, j: j })
-            currEl.innerHTML = renderCell(gBoard, { i: i, j: j });
-            var caver = currEl.querySelector('.caver');
-            if (caver) {
-                caver.classList.remove('hiden')
-            }
             var elMine = currEl.querySelector('.mine');
-            if(elMine)elMine.classList.add('mine-caver');
+            if (elMine) elMine.classList.remove('mine-caver');
+        }
+    }
+    setTimeout(function () {
+
+        for (var i = startI; i <= endI; i++) {
+            for (var j = startJ; j <= endJ; j++) {
+                if (i < 0 || j < 0 || i >= gBoard.length || j >= gBoard[0].length) continue;
+                var currEl = coordToEl({ i: i, j: j })
+                currEl.innerHTML = renderCell(gBoard, { i: i, j: j });
+                var caver = currEl.querySelector('.caver');
+                if (caver) {
+                    caver.classList.remove('hiden')
+                }
+                var elMine = currEl.querySelector('.mine');
+                if (elMine) elMine.classList.remove('mine-caver');
             }
         }
     }, 300)

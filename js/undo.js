@@ -4,9 +4,10 @@
 
 function bodyOnKey(ev) {
     if (ev.ctrlKey && ev.key === 'z')
-    undo();
+        undo();
 }
 
-function undo(){
-
+function undo() {
+    gBoard = gUndoList.pop();
+    renderBoard(gBoard)
 }

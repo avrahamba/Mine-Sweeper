@@ -8,7 +8,7 @@ var gTimeStart;
 var gDarkMode = false;
 var gManuallyCreate = false;
 var gManuallyCreated = false;
-var gUndo = [];
+var gUndoList = [];
 
 const NORMAL = `&#x1F642;`;
 const WIN = `&#x1F60D;`;
@@ -18,7 +18,7 @@ const HINT = `&#x1F4A1;`;
 
 
 function initGame(size, mine) {
-    gUndo = [];
+    gUndoList = [];
     gManuallyCreated = false;
     var elCss = document.querySelector('.css');
     elCss.href = (gDarkMode) ? 'css/styleDarkMode.css' : 'css/style.css';
@@ -149,9 +149,9 @@ function renderCellStr(board, location) {
     var res = ``;
     res += `<td onclick="cellClick(this)" oncontextmenu="cellMarked(this)" onmouseout="outHint(this)" onmouseover="hoverHint(this)" data-coord="cell-${location.i}-${location.j}">`
 
-    if (currCell.isMine) res += `<img class="mine" src="img/mine.png">`;
+    if (currCell.isMine) res += `<img class="mine ${(!currCell.isShown) ? 'mine-caver' : ''}" src="img/mine.png">`;
     else if (currCell.minesAroundCount) res += `<span class="num n${currCell.minesAroundCount}">${currCell.minesAroundCount}</span>`;
-    if (!currCell.isShown) res += `<div class="caver"></div>`;
+    if (!currCell.isShown) res += `<div class="caver ${(currCell.isMarked) ? 'mark' : ''}"></div>`;
     res += `</td>`;
     return res;
 }
@@ -182,7 +182,7 @@ function safeClick(elSafeClick) {
     elCellCaver.classList.add('safe');
     setTimeout(function () { elCellCaver.classList.remove('safe'); }, 300)
 }
-function cellClick(elCell) {
+function cellClick(elCell, rec = false) {
     if (gManuallyCreate) {
         cellClickManuallyCreate(elCell);
         return;
@@ -202,15 +202,18 @@ function cellClick(elCell) {
         }
         gGame.start = false;
     }
+    if (!rec) {
+        gUndoList.push(copyBoard(gBoard));
+    }
     gBoard[coord.i][coord.j].isShown = true;
     elCell.innerHTML = renderCell(gBoard, coord);
     if (!gBoard[coord.i][coord.j].minesAroundCount) expandShown(gBoard, coord);
     checkGameOver();
-    undo.push({ action: false, coord: coord });
 }
 function cellMarked(elCell) {
     var coord = elTdToCoord(elCell)
     if (gBoard[coord.i][coord.j].isShown) return;
+    gUndoList.push(copyBoard(gBoard));
     if (!gBoard[coord.i][coord.j].isMarked) gGame.markedCount++;
     else gGame.markedCount--;
     gBoard[coord.i][coord.j].isMarked = !gBoard[coord.i][coord.j].isMarked;
@@ -218,7 +221,6 @@ function cellMarked(elCell) {
     checkGameOver();
     var elMinesScreen = document.querySelector('.mines-screen');
     elMinesScreen.innerText = gLevel.mine - gGame.markedCount;
-    undo.push({ action: false, coord: coord });
 }
 
 function checkGameOver() {

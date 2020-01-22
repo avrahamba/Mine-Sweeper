@@ -26,7 +26,7 @@ function manuallyCreate() {
         elLive.innerText = gGame.live;
         var elMinesScreen = document.querySelector('.mines-screen');
         elMinesScreen.innerText = gLevel.mine;
-        gUndo = [];
+        gUndoList = [];
 
     } else {
         if (gIntervalTime) clearInterval(gIntervalTime);
