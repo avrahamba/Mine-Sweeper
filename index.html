@@ -5,42 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link class="css" rel="stylesheet" href="css/style.css">
+    <title>Minesweeper</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link class="css" type="text/css" rel="stylesheet" href="css/lightModestyle.css">
+    <link class="css2" type="text/css" rel="stylesheet" href="">
+    <link class="css3" type="text/css" rel="stylesheet" href="css/size1.css">
 </head>
 
 <body onload="initGame()" onkeydown="bodyOnKey(event)">
-    <table>
-        <thead class="theade">
-            <tr>
-                <td colspan="100">
-                    <div class="time">0</div>
-                    <div class="mines-screen">0</div>
-                    <div class="imuji" onclick="initGame()">&#x1F642;</div>
-                    <div class="live"></div>
-                    <div class="dark-mode" onclick="darkMode()">🌓</div>
-                    <div class="safe-click" onclick="safeClick(this)"></div>
-                    <div class="hints" onclick="hint(this)"></div>
-                    <div class="undo" onclick="undo()">undo</div>
-                    <div>
-                        <select>
-                            <option onclick="initGame(4,2)">Beginner</option>
-                            <option onclick="initGame(8,12)">Medium</option>
-                            <option onclick="initGame(12,30)">Expert</option>
-                        </select>
-                    </div>
-                    <div class="manually-create" onclick="manuallyCreate()">manually create</div>
-                </td>
-            </tr>
-        </thead>
-        <tbody class="game-board"> </tbody>
-    </table>
-    <div class="best-sorce"></div>
-     <script src="js/utils.js"></script>
-     <script src="js/manuallyCreate.js"></script> 
-     <script src="js/hints.js"></script> 
-     <script src="js/undo.js"></script> 
-     <script src="js/main.js"></script>
-    </body>
+    <div class="header">
+        <div class="button time">time: <span>0</span></div>
+        <div class="button imuji" onclick="initGame()">&#x1F642;</div>
+        <div class="button mines-screen">mines: <span>0</span></div>
+        <div class="button dark-mode" onclick="darkMode()">🌓</div>
+        <div class="button select1" onclick="initGame(4,2)">Beginner</div>
+        <div class="button select2" onclick="initGame(8,12)">Medium</div>
+        <div class="button select3" onclick="initGame(12,30)">Expert</div>
+        <div class="button manually-create" onclick="manuallyCreate()"><img src="img/gear.png"></div>
+    </div>
+    <div class="background"></div>
+    <div class="table-div">
+        
+        <table onmousedown="middleButton(event)">
+            <tbody class="game-board"> </tbody>
+        </table>
+        <div class="hide-footer"></div>
+    </div>
+    <div class="footer">
+        <div class="button best-sorce">best: <span></span></div>
+        <div class="button safe-click" onclick="safeClick(this)"></div>
+        <div class="button live">live: <span>0</span></div>
+        <div class="button hints" onclick="hint(this)"></div>
+        <div class="button undo" onclick="undo()">&#x293F;</div>
+
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/manuallyCreate.js"></script>
+    <script src="js/hints.js"></script>
+    <script src="js/undo.js"></script>
+    <script src="js/midleMode.js"></script>
+    <script src="js/main.js"></script>
+</body>
 
 </html>

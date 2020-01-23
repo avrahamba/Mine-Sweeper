@@ -1,21 +1,17 @@
 table {
-    border: 1px black solid;
+    border: 0px black solid;
 }
 
 td {
-    border: 1px black solid;
+    border: 0px black solid;
     height: 35px;
     width: 35px;
 }
 
-.mine {
-    height: 30px;
-    width: 30px;
-    position: relative;
+.mine-cover{
+    display: block;
 }
-
-.caver {
-    
+.cover {
     display: none;
 }
 

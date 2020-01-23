@@ -1,0 +1,32 @@
+td {
+    border: 0px;
+    margin: 0px;
+    height: 46px;
+    width: 46px;
+    padding: 0px;
+}
+.cover {
+    height: 46px;
+    width: 46px;
+    position: relative;
+    z-index: 1;
+}
+td span{
+    text-align: center;
+    font-size: 36px;
+    padding-top: 0px;
+    margin-top: -12px;
+}
+.mine {
+    height: 41px;
+    width: 41px;
+    top: 3px;
+    left: 3px;
+    position: relative;
+}
+.num {
+    height: 38px;
+    width: 38px;
+    position: inherit;
+    margin-left: 13px;
+}

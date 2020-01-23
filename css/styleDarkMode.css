@@ -1,44 +1,34 @@
+
 table {
-    border: 1px black solid;
+    border: 0px;
+    background-color: white;
+}
+.cover{
+    background-color: #444;
+
+}
+td,.cover-chack{
+    background: black;
 }
 
-td {
-    border: 1px black solid;
-    height: 35px;
-    width: 35px;
+.background,.header, .footer{
+    background: #444;
+}
+.footer{
+    border-top: 3px solid white;
+}
+.header{
+    border-bottom: 3px solid white;
 }
 
-.mine {
-    height: 30px;
-    width: 30px;
-    position: relative;
+.button{
+    background: #111;
+    color: white;
 }
 
-.mine-caver {
-    position: fixed;
-}
 
-.caver {
-    height: 35px;
-    width: 35px;
-    background-color: #222;
-    position: relative;
-    z-index: 1;
-}
 .safe{
     background-color: green;
 }
 
-.hiden{
-    display: none;
-}
-.num {
-    height: 30px;
-    width: 30px;
-    position: fixed;
-}
-
-.mark {
-    background-image: url('../img/flug.png');
-    background-repeat: round;
-}
+.num{color:white;}
