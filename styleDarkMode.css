@@ -1,0 +1,36 @@
+body{
+    background-color: #000;
+}
+table {
+    border: 0px;
+    background-color: white;
+}
+.cover{
+    background-color: #444;
+
+}
+td,.cover-chack{
+    background: black;
+}
+
+.background,.header, .footer{
+    background: #444;
+}
+.footer{
+    border-top: 3px solid white;
+}
+.header{
+    border-bottom: 3px solid white;
+}
+
+.button{
+    background: #111;
+    color: white;
+}
+
+
+.safe{
+    background-color: green;
+}
+
+.num{color:white;}
